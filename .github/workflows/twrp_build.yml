@@ -3,6 +3,7 @@ name: Getting Twrp CI
 on:
   push:
     branches: [ "android-8.0", "android-8.1", "android-9.0", "android-12.1" ]
+    paths-ignore: .github
   pull_request:
     branches: [ "android-8.0", "android-8.1", "android-9.0", "android-12.1" ]  
   workflow_dispatch:

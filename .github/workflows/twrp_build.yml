@@ -26,16 +26,16 @@ jobs:
              https://api.github.com/repos/${{ github.repository }}/actions/runs/{}
              
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y make curl git wget
+      run: sudo apt-get update && sudo apt-get install -y make curl git wget repo
 
     - name: Show environment variables
       run: env
       
-    - name: Get repo
-      run: |
-        curl https://storage.googleapis.com/git-repo-downloads/repo > repo
-        chmod a+x repo
-        sudo mv repo /usr/local/bin/
+#    - name: Get repo
+#      run: |
+#        curl https://storage.googleapis.com/git-repo-downloads/repo > repo
+#        chmod a+x repo
+#        sudo mv repo /usr/local/bin/
 
     - name: Initialize a shallow clone
       id: init

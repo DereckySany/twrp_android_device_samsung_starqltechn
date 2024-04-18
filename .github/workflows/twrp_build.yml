@@ -22,7 +22,7 @@ jobs:
       run: env
       
     - name: get repo
-      run: curl https://storage.googleapis.com/git-repo-downloads/repo > .local/bin/repo
+      run: curl https://storage.googleapis.com/git-repo-downloads/repo > /home/runner/.local/bin/repo
         
     #- name: move repo
     # run: sudo mv ./repo > /usr/local/bin/repo

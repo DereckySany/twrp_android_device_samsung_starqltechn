@@ -9,32 +9,34 @@ on:
   
 jobs:
   build:
-
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: sudo apt-get install make curl git wget
+      run: sudo apt-get update && sudo apt-get install -y make curl git wget
 
-    - name: show env
+    - name: Show environment variables
       run: env
       
-    - name: get repo
-      run: curl https://storage.googleapis.com/git-repo-downloads/repo > /home/runner/.local/bin/repo
-        
-    #- name: move repo
-    # run: sudo mv ./repo > /usr/local/bin/repo
-        
-    - name: install repo
-      run: sudo chmod a+x .local/bin/repo
+    - name: Get repo
+      run: |
+        curl https://storage.googleapis.com/git-repo-downloads/repo > repo
+        chmod a+x repo
+        sudo mv repo /usr/local/bin/
 
-    - name: initialize a shallow clone
-      run: repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-8.0
+    - name: Initialize a shallow clone
+      run: |
+        mkdir twrp
+        cd twrp
+        repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-8.0
 
-    - name: sync up repo
-      run: repo sync
+    - name: Sync up repo
+      run: |
+        cd twrp
+        repo sync
       
-    - name: list dir
+    - name: List directory
       run: ls

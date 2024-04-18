@@ -1,7 +1,9 @@
 name: Make Recovery
 
 on:
-  workflow_dispatch:
+  workflow_run:
+   branches: [ "android-8.0", "android-8.1", "android-9.0", "android-12.1" ] 
+  workflow_dispatch: 
     inputs:
       LIBRARY_NAME:
         description: 'LIBRARY_NAME'

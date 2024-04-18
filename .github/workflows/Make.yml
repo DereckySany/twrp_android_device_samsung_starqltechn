@@ -45,12 +45,7 @@ jobs:
       run: |
         docker rmi `docker images -q`
         sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/sudo apt/sources.list.d
-        sudo apt update
-        sudo apt -y install software-properties-common apt-transport-https dirmngr
-        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB4112585D386EB94
-        sudo add-apt-repository https://dl.hhvm.com/ubuntu
-        sudo apt -y hhvm
-        sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+        sudo apt -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mysql* php*
         sudo apt -y autoremove --purge
         sudo apt -y autoclean
         sudo apt clean

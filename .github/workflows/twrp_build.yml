@@ -19,7 +19,7 @@ jobs:
       run: sudo apt-get install make curl git wget
 
     - name: install repo
-      run: curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo && sudo mv ~/repo > /usr/bin/repo && sudo chmod a+x /usr/bin/repo
+      run: curl https://storage.googleapis.com/git-repo-downloads/repo > ./repo && sudo mv ./repo > /usr/bin/repo && sudo chmod a+x /usr/bin/repo
 
     - name: initialize a shallow clone
       run: repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-8.0

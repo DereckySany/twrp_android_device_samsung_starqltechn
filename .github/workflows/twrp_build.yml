@@ -32,7 +32,7 @@ jobs:
         mkdir twrp
         cd twrp
         repo init --depth=1 -u git://github.com/DereckySany/platform_manifest_twrp_omni.git -b twrp-8.0
-      if: failure()
+      if: success()
 
     - name: Sync up repo
       run: |

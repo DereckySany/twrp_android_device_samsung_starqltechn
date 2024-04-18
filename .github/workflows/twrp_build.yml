@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: apt-get install make curl git wget
+      run: sudo apt-get install make curl git wget
 
     - name: install repo
       run: curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo && chmod a+x /usr/bin/repo

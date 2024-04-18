@@ -35,7 +35,7 @@ on:
 jobs:
   build:
     if: github.event.repository.owner.id == github.event.sender.id
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     
     steps:
     - name: Check Out
@@ -45,7 +45,7 @@ jobs:
       run: |
         docker rmi `docker images -q`
         sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/sudo apt/sources.list.d
-        sudo apt -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+        sudo apt -y purge azure-cli ghc* hhvm zulu* llvm* firefox google* dotnet* powershell openjdk* mysql* php*
         sudo apt -y autoremove --purge
         sudo apt -y autoclean
         sudo apt clean
